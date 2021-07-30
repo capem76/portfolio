@@ -27,6 +27,7 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './about/skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ContactComponent } from './contact/contact.component';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
