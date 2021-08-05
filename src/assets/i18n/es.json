@@ -1,5 +1,18 @@
 {
     "ABOUT": {
         "TITRE": "Sobre mi"
+    },
+    "NAVBAR": {
+        "LINKS": {
+            "ABOUT": "Sobre mi",
+            "PROJECTS": "Proyectos",
+            "CONTACT": "Contacto"
+        }
+    },
+    "PROJECTS": {
+        "TITRE": "Mis proyectos"
+    },
+    "CONTACT": {
+        "TITRE": "Enviame un mensaje"
     }
 }
