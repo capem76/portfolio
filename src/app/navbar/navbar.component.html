@@ -3,7 +3,8 @@
     <!-- Container wrapper -->
     <div class="container">
       <!-- Toggle button -->
-      <button class="navbar-toggler"
+      <button #btnMenu
+              class="navbar-toggler"
               type="button"
               data-mdb-toggle="collapse" 
               data-mdb-target="#navbarSupportedContent"
@@ -24,15 +25,15 @@
           <img src="../../assets/img/cpena-logo.png" height="30" alt="" loading="lazy" />
         </a>
         <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul #navbarUl class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#about">{{ "NAVBAR.LINKS.ABOUT" | translate}}</a>
+            <a class="nav-link" [routerLink]="['/about']">{{ "NAVBAR.LINKS.ABOUT" | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#projects">{{ "NAVBAR.LINKS.PROJECTS" | translate}}</a>
+            <a class="nav-link" [routerLink]="['/projects']">{{ "NAVBAR.LINKS.PROJECTS" | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">{{ "NAVBAR.LINKS.CONTACT" | translate}}</a>
+            <a class="nav-link" [routerLink]="['/contact']">{{ "NAVBAR.LINKS.CONTACT" | translate}}</a>
           </li>
         </ul>
         <!-- Left links -->
