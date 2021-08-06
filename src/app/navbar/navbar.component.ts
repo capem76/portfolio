@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
   }
 
-  private closeNavbar (): void {
+  public closeNavbar (): void {
     if( getComputedStyle( this.btnMenu.nativeElement ).display !== 'none' ){
       this.renderer2.selectRootElement( this.btnMenu.nativeElement, true ).click();
     }

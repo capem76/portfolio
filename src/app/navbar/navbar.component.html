@@ -21,7 +21,9 @@
            mdbCollapse
            #portfolioNavbar="mdbCollapse">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <a  class="navbar-brand mt-2 mt-lg-0" 
+            (click)="closeNavbar()"
+            [routerLink]="['/home']">
           <img src="../../assets/img/cpena-logo.png" height="30" alt="" loading="lazy" />
         </a>
         <!-- Left links -->
@@ -37,10 +39,10 @@
           </li>
         </ul>
         <!-- Left links -->
+        <app-change-lang></app-change-lang>
         
       </div>
       <!-- Collapsible wrapper -->
-      <app-change-lang></app-change-lang>
 
     </div>
     <!-- Container wrapper -->
