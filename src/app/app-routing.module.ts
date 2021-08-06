@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectsComponent } from './projects/projects.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { HeaderComponent } from './header/header.component';
+import { ProjectsComponent } from './portfolio-components/projects/projects.component';
+import { AboutComponent } from './portfolio-components/about/about.component';
+import { ContactComponent } from './portfolio-components/contact/contact.component';
+import { HeaderComponent } from './portfolio-components/header/header.component';
 
 const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
