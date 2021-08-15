@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
+
+
 // modulo mis componentes
 import { PortfolioComponentsModule } from "./portfolio-components/portfolio-components.module";
 
@@ -42,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage:'en'
     }),
     RouterModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

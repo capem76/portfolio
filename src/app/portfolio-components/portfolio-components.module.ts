@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { NavbarComponent } from '../portfolio-components/navbar/navbar.component';
 import { HeaderComponent } from '../portfolio-components/header/header.component';
@@ -33,7 +34,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     TranslateModule,
     MdbModule,
-    RouterModule    
+    RouterModule,
+    ReactiveFormsModule    
   ],
   exports : [
     NavbarComponent,
