@@ -2,7 +2,14 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { IContact } from './icontact.contact';
+import { AngularFireDatabase } from "@angular/fire/database";
+import { AngularFirestore } from "@angular/fire/firestore";
+import { ContactService } from './contact.service';
+import { ContactMessage } from './contact-message.model';
+import { AngularFireAuth } from "@angular/fire/auth";
+
+
 
 @Component({
   selector: 'app-contact',
@@ -26,8 +33,14 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   textName: string = "";
   private subsMessage: Subscription;
   private subsName: Subscription;
+  
 
-  constructor( private formbuilder: FormBuilder, private http: HttpClient ) {
+  constructor(  private formbuilder: FormBuilder, 
+                private http: HttpClient, 
+                private afireDb: AngularFireDatabase,
+                private firestore: AngularFirestore,
+                private contactService: ContactService,
+                private angularFireAuth: AngularFireAuth ) {
     this.inicializaComponentesFormulario();
    }
   
@@ -94,9 +107,41 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     
   }
 
-  public enviarFormulario(){
-    this.nameForm.setValue( this.textName);
-    console.log(this.form.value);
+  public enviarFormulario(){            
+    let contactValue: IContact = {
+      name: this.nameForm.value,
+      email: this.emailForm.value,
+      message: this.messageForm.value,
+      date: new Date()
+    }    
+    const html = `
+    <div>From:${contactValue.name}</div>
+    <div>Email: <a href="mailto:${contactValue.email}">${contactValue.email}</a></div>
+    <div>Date:${contactValue.date}</div>
+    <div>Message:</div>
+    `
+    console.debug(`valores formulario: ${JSON.stringify(contactValue)}`);
+
+    let formRequest =  new ContactMessage();
+    formRequest.contactForm = contactValue;
+    formRequest.html = html;
+
+    // this.afireDb.database.ref('/messages').set( formRequest );
+    this.angularFireAuth.signInAnonymously()
+    .then( ()=>{
+      console.log('logged is as Anonymous!!')
+      this.contactService.createContactMessage( formRequest );
+    })
+    .catch( (error) =>{
+      var errorCode= error.code;
+      var errorMessage = error.message;
+      console.error(`error en signing, code: ${errorCode} message: ${errorMessage}`)
+    }) 
+
+    
+    
+    this.form.reset();
+
   }
 
   public cleanUnnecessaryWhitSpaces(cadena: String){

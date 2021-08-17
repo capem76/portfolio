@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from "../environments/environment";
 
-
-
+// firestore
+import { AngularFireModule } from "@angular/fire"; 
 
 // modulo mis componentes
 import { PortfolioComponentsModule } from "./portfolio-components/portfolio-components.module";
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage:'en'
     }),
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
     
   ],
   providers: [],
