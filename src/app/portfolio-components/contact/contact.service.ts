@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { ContactMessage } from './contact-message.model';
 import { AngularFireAuth } from "@angular/fire/auth";
+import  Swal  from "sweetalert2";
 
 @Injectable({
   providedIn: 'root'
@@ -10,30 +11,28 @@ export class ContactService {
 
   constructor( private angularFirestore: AngularFirestore, private angularFireAuth: AngularFireAuth ) { }
 
-  signInAnonymously(){
-    
-      this.angularFireAuth.signInAnonymously()
-      .then( ()=>{
-        console.log('logged is as Anonymous!!')
-      })
-      .catch( (error) =>{
-        var errorCode= error.code;
-        var errorMessage = error.message;
-        console.error(`error en signing, code: ${errorCode} message: ${errorMessage}`)
-      }) 
-      
-    
-  }
-
+ 
   createContactMessage( contactMessage: ContactMessage ): Promise<any>{
     let createContectMessage = new Promise<any>( ( resolve, reject ) => {
       this.angularFirestore
         .collection("contactMessage")
-        .add( Object.assign({}, contactMessage))
+        .add( Object.assign({}, contactMessage)) // para que el objeto sea reconocible por firebase
         .then( response => {
-            console.debug(response);
-          },
-          error => reject(error) 
+            console.debug("Mensaje enviado!");
+            Swal.fire({
+              title: 'Mensaje enviado',
+              text: 'Su mensaje ha sido enviado con exito',
+              icon: 'success'
+            });
+            
+          },          
+          error =>{ reject(error); 
+          Swal.fire({
+            title: 'Error en envio',
+            text: 'Su mensaje no ha sido',
+            icon: 'error'
+          });
+        }
         );
     });
     
@@ -42,13 +41,3 @@ export class ContactService {
 
   }
 }
-// si no se envia Object.assign( {}, contactMessage) entonces se debe enviar el objeto
-// {
-//   contactForm:{
-//     name:contactMessage.contactForm.name,
-//     email: contactMessage.contactForm.email,
-//     message:contactMessage.contactForm.message,
-//     date: contactMessage.contactForm.date
-//   },
-//   html: contactMessage.html
-// }

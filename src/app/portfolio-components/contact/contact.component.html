@@ -71,7 +71,7 @@
                         maxlength="256"
                         placeholder="I'm interested..."
                         required
-                        (blur)="messageForm.setValue( messageForm.value.trim() )">
+                        (blur)="messageForm.setValue( messageForm.value?.trim() )">
                 </textarea>
               <label mdbLabel class="form-label" for="message">Message</label>
               <mdb-error *ngIf="messageForm?.invalid && (messageForm.dirty || messageForm.touched) ">
@@ -87,18 +87,10 @@
           </div>
 
           <input [formControl]="honeypot" class="hidden" type="text" />
-
-          <!-- Checkbox -->
-          <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
-            <label class="form-check-label" for="form4Example4">
-              Send me a copy of this message
-            </label>            
-          </div>
           
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-block mb-4"
-                  [disabled]="isLoading || !form.valid"
+                  [disabled]="isLoading || !form.valid || !honeypot.pristine || honeypot.touched"
                   (click)="enviarFormulario()">Send</button>
         </form>
       </div>

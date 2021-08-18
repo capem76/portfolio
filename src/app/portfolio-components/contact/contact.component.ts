@@ -61,14 +61,11 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
   private suscriptionValueChanges(): void{   
-
     this.subsMessage = this.messageForm.valueChanges
      .subscribe( ( text: string) => {
       this.textMessage = text;
 
       });
-
-
   }
 
   ngOnDestroy(): void {
@@ -102,12 +99,19 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
-  public verificaErrorFormulario( errors: ValidationErrors ) {
+  public verificaErrorFormulario( errors: ValidationErrors ): boolean {
     console.log(errors);
+    if(this.form.valid &&  this.honeypot.pristine ){
+      return true
+    }else {
+
+      return false;
+    }
     
   }
 
-  public enviarFormulario(){            
+  public enviarFormulario(){ 
+    
     let contactValue: IContact = {
       name: this.nameForm.value,
       email: this.emailForm.value,
@@ -119,17 +123,16 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     <div>Email: <a href="mailto:${contactValue.email}">${contactValue.email}</a></div>
     <div>Date:${contactValue.date}</div>
     <div>Message:</div>
-    `
-    console.debug(`valores formulario: ${JSON.stringify(contactValue)}`);
-
+    `;
     let formRequest =  new ContactMessage();
-    formRequest.contactForm = contactValue;
-    formRequest.html = html;
 
+    
     // this.afireDb.database.ref('/messages').set( formRequest );
     this.angularFireAuth.signInAnonymously()
     .then( ()=>{
-      console.log('logged is as Anonymous!!')
+      console.log('logged is as Anonymous!!');
+      formRequest.contactForm = contactValue;
+      formRequest.html = html;
       this.contactService.createContactMessage( formRequest );
     })
     .catch( (error) =>{
