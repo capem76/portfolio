@@ -13,6 +13,29 @@
         "TITRE": "My projects"
     },
     "CONTACT": {
-        "TITRE": "Send me a message"
+        "TITRE": "Send me a message",
+        "ERRORS": {
+            "nameRequerido": "Name is required",
+            "nameMaxlenght": "Name maximum lenght is 50 characters",
+            "nameMinLenght": "Name minimum lenght is 5 characters",
+            "emailRequerido": "Email can't be empty",
+            "emailFormato": "Email format is wrong",
+            "emailMaxLenght": "Email is too long",
+            "messageRequerido": "Message can not be empty",
+            "messageCounter": "Remaining characters"
+        },
+        "validacionCorrecta": "it looks good!",
+        "btnEnviar": "Send",
+        "emailLabel": "Email address",
+        "messageLabel": "Message",
+        "nombreLabel": "Name",
+        "envioMensajeResponse": {
+            "title": "Message sent",
+              "text": "Your message has been sent it"              
+        },
+        "envioMensajeError": {
+            "title": "Sending error",
+              "text": "Your message has not been sent"              
+        }
     }
 }

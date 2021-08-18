@@ -13,6 +13,29 @@
         "TITRE": "Mes projets"
     },
     "CONTACT": {
-        "TITRE": "Envoyez-moi un message"
+        "TITRE": "Envoyez-moi un message",
+        "ERRORS": {
+            "nameRequerido": "Nom est obligatoire",
+            "nameMaxlenght": "Le maximum long est 50 caractères",
+            "nameMinLenght":"Le minimum long est 5 caractères",
+            "emailRequerido": "Email est obligatoire",
+            "emailFormato": "Format d’email incorrect",
+            "emailMaxLenght": "La longueur maximale a été dépassée",
+            "messageRequerido": "Message est obligatoire",
+            "messageCounter": "Caractères restants"
+        },
+        "validacionCorrecta": "Ça a l'air d'être correct!",
+        "btnEnviar": "Envoyer",        
+        "emailLabel": "Adresse e-mail",
+        "messageLabel": "Message",
+        "nombreLabel": "Nom",
+        "envioMensajeResponse": {
+            "title": "Message envoyé",
+              "text": "Votre message a été envoyé"              
+        },
+        "envioMensajeError": {
+            "title": "Erreur d’envoi",
+              "text": "Votre message n'a pas été envoyé"              
+        }
     }
 }

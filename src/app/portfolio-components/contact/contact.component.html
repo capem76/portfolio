@@ -17,20 +17,20 @@
                       [formControl]="nameForm"
                       (blur)="nameForm.setValue(cleanUnnecessaryWhitSpaces(nameForm.value))"
                         />
-              <label mdbLabel class="form-label" for="name">Name</label>
+              <label mdbLabel class="form-label" for="name">{{ "CONTACT.nombreLabel" | translate }}</label>
               <div *ngIf="nameForm?.errors && (nameForm.dirty || nameForm.touched) ">
                 <mdb-error *ngIf="nameForm.errors.required">
-                  Nombre es requerido
+                  {{ "CONTACT.ERRORS.nameRequerido" | translate }}
                 </mdb-error>
                 <mdb-error *ngIf="nameForm.errors.maxlength">
-                  maximo 50 caracteres
+                  {{ "CONTACT.ERRORS.nameMaxlenght" | translate }}
                 </mdb-error>                
                 <mdb-error *ngIf="nameForm.errors.minlength">
-                  Largo minimo 5 caracteres                  
+                  {{ "CONTACT.ERRORS.nameMinLenght" | translate }}              
                 </mdb-error>                
               </div>
               <mdb-success *ngIf="nameForm?.valid && (nameForm.dirty || nameForm.touched) ">
-                Looks good!
+                {{ "CONTACT.validacionCorrecta" | translate }}
               </mdb-success>              
             </mdb-form-control>
           </div>
@@ -43,21 +43,21 @@
                      required
                      [formControl]="emailForm"
                       />
-              <label mdbLabel class="form-label" for="email">Email address</label>
+              <label mdbLabel class="form-label" for="email">{{ "CONTACT.emailLabel" | translate }}</label>
               <div *ngIf="emailForm?.errors && (emailForm.dirty || emailForm.touched) ">
                 <mdb-error *ngIf="emailForm.errors.required" >
-                  Email no puede ser vacio
+                  {{ "CONTACT.ERRORS.emailRequerido" | translate }}
                 </mdb-error>
                 <mdb-error *ngIf="emailForm.errors.pattern">
-                  Formato Email no correcto
+                  {{ "CONTACT.ERRORS.emailFormato" | translate }}
                 </mdb-error>
                 <mdb-error *ngIf="emailForm.errors.maxlength">
-                  Se ha superado el largo maximo
+                  {{ "CONTACT.ERRORS.emailMaxLenght" | translate }}
                 </mdb-error>                
               </div>
               
               <mdb-success *ngIf="emailForm?.valid && (emailForm.dirty || emailForm.touched)">
-                Looks good!
+                {{ "CONTACT.validacionCorrecta" | translate }}
               </mdb-success>
             </mdb-form-control>
           </div>
@@ -73,13 +73,13 @@
                         required
                         (blur)="messageForm.setValue( messageForm.value?.trim() )">
                 </textarea>
-              <label mdbLabel class="form-label" for="message">Message</label>
+              <label mdbLabel class="form-label" for="message">{{ "CONTACT.messageLabel" | translate }}</label>
               <mdb-error *ngIf="messageForm?.invalid && (messageForm.dirty || messageForm.touched) ">
-                Mensaje no puede ser vacio
+                {{ "CONTACT.ERRORS.messageRequerido" | translate }}
               </mdb-error>
               
               <mdb-success *ngIf="messageForm?.valid && (messageForm.dirty || messageForm.touched)">
-                caracteres restantes: {{ 256 - textMessage.length }}
+                {{ "CONTACT.ERRORS.messageCounter" | translate }}: {{ 256 - textMessage.length }}
 
               </mdb-success>
             </mdb-form-control>
@@ -91,7 +91,7 @@
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-block mb-4"
                   [disabled]="isLoading || !form.valid || !honeypot.pristine || honeypot.touched"
-                  (click)="enviarFormulario()">Send</button>
+                  (click)="enviarFormulario()">{{ "CONTACT.btnEnviar" | translate }}</button>
         </form>
       </div>
     </div>
