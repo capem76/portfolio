@@ -3,6 +3,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { ContactMessage } from './contact-message.model';
 import  Swal  from "sweetalert2";
 import { ChangeLangService } from '../change-lang/change-lang.service';
+import { IContact } from './icontact.contact';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,22 @@ export class ContactService {
     
     return createContectMessage;
       
+
+  }
+
+  guardarDatosFormSessionStorage( contacForm: IContact ){
+    const jsonData = JSON.stringify(contacForm)
+    sessionStorage.setItem('contactForm', jsonData);
+
+  }
+
+  getDatosFromSessionStorage(): IContact{
+    let contactForm: IContact;
+    if( sessionStorage.getItem('contactForm') ){
+      return contactForm  = JSON.parse( sessionStorage.getItem('contactForm') ) 
+    }else{
+      return contactForm = {name: "", message: "", email: ""};
+    }
 
   }
 }

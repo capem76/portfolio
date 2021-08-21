@@ -1,12 +1,21 @@
 
 <div class="btn-group btn-group-sm mt-1 mb-1" role="group">
-    <button type="button" (click)="changeLangue('en')" class="btn btn-primary btn-sm btn-rounded">
+    <button type="button" 
+            (click)="changeLangue('en')" 
+            class="btn btn-primary btn-sm btn-rounded"
+            [ngClass]="{'active': langage === 'en'}">
         En
     </button>
-    <button type="button" (click)="changeLangue('es')" class="btn btn-primary btn-sm btn-rounded">
+    <button type="button" 
+            (click)="changeLangue('es')" 
+            class="btn btn-primary btn-sm btn-rounded"
+            [ngClass]="{'active': langage === 'es'}">
         Es
     </button>
-    <button type="button" (click)="changeLangue('fr')" class="btn btn-primary btn-sm btn-rounded">
+    <button type="button" 
+            (click)="changeLangue('fr')" 
+            class="btn btn-primary btn-sm btn-rounded"
+            [ngClass]="{'active': langage === 'fr'}">
         Fr
     </button>
 </div>

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl, Validators, ValidationErrors, Form } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { Subscription } from 'rxjs';
 import { IContact } from './icontact.contact';
@@ -8,6 +8,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { ContactService } from './contact.service';
 import { ContactMessage } from './contact-message.model';
 import { AngularFireAuth } from "@angular/fire/auth";
+
 
 
 
@@ -35,13 +36,10 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   private subsName: Subscription;
   
 
-  constructor(  private formbuilder: FormBuilder, 
-                private http: HttpClient, 
-                private afireDb: AngularFireDatabase,
-                private firestore: AngularFirestore,
+  constructor(  private formbuilder: FormBuilder,              
                 private contactService: ContactService,
                 private angularFireAuth: AngularFireAuth ) {
-    this.inicializaComponentesFormulario();
+    
    }
   
   ngAfterViewInit(): void {
@@ -49,6 +47,8 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.inicializaComponentesFormulario();
+    
   }
 
 
@@ -68,23 +68,23 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-   this.subsMessage.unsubscribe();
-  }
-
+  
   private inicializaComponentesFormulario(): void {
-    this.nameForm = new FormControl("", [
+
+    let contactFormData: IContact = this.contactService.getDatosFromSessionStorage();
+    
+    this.nameForm = new FormControl(contactFormData.name, [
        Validators.required,
        Validators.maxLength(50),
        Validators.minLength(5)] 
     );
-    this.emailForm =  new FormControl("", [
+    this.emailForm =  new FormControl(contactFormData.email, [
       Validators.required, 
       Validators.email, 
       Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$'),
       Validators.maxLength(320)
     ]);
-    this.messageForm = new FormControl("", [
+    this.messageForm = new FormControl(contactFormData.message, [
       Validators.required, 
       Validators.maxLength(256)
     ]);
@@ -96,28 +96,34 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
       message: this.messageForm,
       honeypot: this.honeypot
     });
+       
 
   }
 
-  public verificaErrorFormulario( errors: ValidationErrors ): boolean {
-    console.log(errors);
+  public isFormularioValido(): boolean {    
     if(this.form.valid &&  this.honeypot.pristine ){
       return true
     }else {
-
       return false;
     }
-    
+  }
+
+  public isFormControlValid( formControl: FormControl ): boolean{    
+    if  (formControl?.valid && (formControl.dirty || formControl.touched) ){
+      console.log("valido y sucio o tocado");
+      return true;
+    }else if (formControl?.invalid && (formControl.dirty || formControl.touched) ){
+      console.log("invalido y sucio o tocado");
+      return false;
+    }
+      
+
   }
 
   public enviarFormulario(){ 
     
-    let contactValue: IContact = {
-      name: this.nameForm.value,
-      email: this.emailForm.value,
-      message: this.messageForm.value,
-      date: new Date()
-    }    
+    let contactValue = this.creaContactFormObj(this.form);
+
     const html = `
     <div>From:${contactValue.name}</div>
     <div>Email: <a href="mailto:${contactValue.email}">${contactValue.email}</a></div>
@@ -140,8 +146,6 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
       var errorMessage = error.message;
       console.error(`error en signing, code: ${errorCode} message: ${errorMessage}`)
     }) 
-
-    
     
     this.form.reset();
 
@@ -155,6 +159,30 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
     return cadenaLimpia;
 
   }
+
+  ngOnDestroy(): void {    
+    this.subsMessage.unsubscribe();
+
+    // if( this.isFormularioValido() ){
+      this.contactService.guardarDatosFormSessionStorage( this.creaContactFormObj(this.form) );      
+    // }
+   }
+
+   creaContactFormObj( contactForm: FormGroup ):IContact {    
+     
+      let contactValue: IContact = {
+        name: contactForm.get('name').value === null? "" : contactForm.get('name').value,
+        email: contactForm.get('email').value === null? "": contactForm.get('email').value ,
+        message: contactForm.get('message').value === null ? "" : contactForm.get('message').value,
+        date: new Date(),
+        formPristine: contactForm.pristine,
+        formTouched: contactForm.touched,
+        formStatus: contactForm.status
+
+      }    
+      return contactValue;
+
+   }
 
   
 

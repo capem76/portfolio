@@ -8,19 +8,38 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class ChangeLangComponent implements OnInit {
 
+  langage: string = 'en';
+
   constructor( private translate: TranslateService ) { }
 
   ngOnInit(): void {
+    
+    this.iniciaLang();
+
   }
 
   /**
    * Metodo para cambiar el lenguage en ngx-translate
-   * @param lang En | Es | Fr
+   * @param lang en | es | fr
    * 
    */
   changeLangue( lang: string){
     this.translate.use(lang);
+    sessionStorage.setItem('lang', lang);
+    this.langage = lang;
 
   }
+
+  iniciaLang(){
+    if( !sessionStorage.getItem('lang') ){
+      sessionStorage.setItem('lang', 'en');
+    }else{
+      this.translate.use( sessionStorage.getItem('lang') );
+      this.langage = sessionStorage.getItem('lang');
+    }
+
+  }
+
+
 
 }
