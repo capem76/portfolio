@@ -8,7 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class ChangeLangComponent implements OnInit {
 
-  langage: string = 'en';
+  langage: string = 'es';
 
   constructor( private translate: TranslateService ) { }
 
@@ -32,7 +32,7 @@ export class ChangeLangComponent implements OnInit {
 
   iniciaLang(){
     if( !sessionStorage.getItem('lang') ){
-      sessionStorage.setItem('lang', 'en');
+      sessionStorage.setItem('lang', 'es');      
     }else{
       this.translate.use( sessionStorage.getItem('lang') );
       this.langage = sessionStorage.getItem('lang');

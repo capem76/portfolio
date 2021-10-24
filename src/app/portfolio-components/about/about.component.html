@@ -9,12 +9,9 @@
       <div class="col-md-6 mb-4">
         <img src="../../assets/img/yo-profile3.JPG" class="rounded-circle shadow-1-strong mb-4" height="120" width="119"
           alt="Avatar" />
-        <p><strong>Who's this guy?</strong></p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Maxime maiores repudiandae ullam. Nulla non sit error officia harum veniam illum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Assumenda et reprehenderit rem quasi eligendi facere laborum nulla dolor rerum laboriosam!
+        <p><strong>{{ 'ABOUT.DESCRIPTION.title' | translate }}</strong></p>
+        <p class="about-justify-text" [innerHTML]="'ABOUT.DESCRIPTION.contexto' | translate:param ">
+          
         </p>
         <!-- Linkedin -->
         <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button">

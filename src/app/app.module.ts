@@ -42,7 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
 
       },
-      defaultLanguage:'en'
+      defaultLanguage:'es'
     }),
     RouterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)

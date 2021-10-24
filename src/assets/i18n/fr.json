@@ -1,6 +1,10 @@
 {
     "ABOUT": {
-        "TITRE": "Sur moi"
+        "TITRE": "Sur moi",
+        "DESCRIPTION":{
+            "title": "Qui je suis?",
+            "contexto": "{{value}}"
+        }
     },
     "NAVBAR": {
         "LINKS": {
