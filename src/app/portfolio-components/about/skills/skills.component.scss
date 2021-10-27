@@ -1,0 +1,42 @@
+.icon{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    // background-color: rgb(79, 79, 79);
+    box-sizing: border-box;
+    // filter: sepia(100%);
+    
+}
+
+
+.icon-ionic{
+    background: url('../../../../assets/icons/ionic_icon-icons.com_50362.png');
+                     
+}
+
+div > i {
+    font-size: 1.5em;
+}
+
+div > p {
+    font-size: small;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+    .icon{
+        height: 50px;
+        width: 50px;        
+        
+    }
+
+    div > i {
+        font-size: 3em;
+    }
+
+    div > p {
+        font-size: 16px;
+    }
+    
+}
