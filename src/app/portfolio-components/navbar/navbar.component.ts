@@ -18,10 +18,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   
   
   ngAfterViewInit(): void {    
-    this.navbarUlItems.forEach( ( navItem: ElementRef ) => {
-      // const liElement = navItem.nativeElement instanceof HTMLLIElement;
-      // const aNavlink = navItem.nativeElement.querySelector('.nav-link');
-      // console.debug({ aNavlink });
+    this.navbarUlItems.forEach( ( navItem: ElementRef ) => {    
       this.unListener = this.renderer2.listen( navItem.nativeElement, 'click', (event) => {
         this.closeNavbar();
       })
