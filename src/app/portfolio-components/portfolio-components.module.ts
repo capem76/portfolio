@@ -10,11 +10,15 @@ import { SkillsComponent } from '../portfolio-components/about/skills/skills.com
 import { ProjectsComponent } from '../portfolio-components/projects/projects.component';
 import { ContactComponent } from '../portfolio-components/contact/contact.component';
 import { ChangeLangComponent } from '../portfolio-components/change-lang/change-lang.component';
+import { ModalInfoProjectComponent } from './projects/modal-info-project/modal-info-project.component';
 
 import {TranslateModule} from '@ngx-translate/core';
 // MDB module
 import { MdbModule } from '../mdb/mdb.module';
 import { RouterModule } from '@angular/router';
+
+// pipes
+import { SanitizeHtmlPipe } from '../pipes/sanitize-html.pipe';
 
 
 
@@ -28,7 +32,9 @@ import { RouterModule } from '@angular/router';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    ChangeLangComponent
+    ChangeLangComponent,
+    ModalInfoProjectComponent,
+    SanitizeHtmlPipe
   ],
   imports: [
     CommonModule,

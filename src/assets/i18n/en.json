@@ -14,7 +14,25 @@
         }
     },
     "PROJECTS": {
-        "TITRE": "My projects"
+        "TITRE": "My projects",
+        "PROJECT1": {
+            "TITLE1": "Movies App",
+            "CONTENT1": [
+                "<p>Application for searching movies using the services of the popular API <b>TheMovieDB.</b>",
+                "The most popular movies are listed starting with the most recent releases.<br>",
+                "This app is created using <b>Bootstrap 4.6 y Angular 10</b>. To change the language it is used",
+                "the library <b>ngx-translate</b>. For the slideshow it is used the library <b>Swiper</b>.",
+                "Also it's used somes operators Rxjs like Tap and Map.</p>"]
+        },
+        "PROJECT2": {
+            "TITLE2": "Customers-Invoices App",
+            "CONTENT2": [
+                "<p>Application that connects by <b>Rest Services</b> with the backend to create,",
+                "read, update and delete commercial invoices.<br>",
+                "The application is developed using <b>Angular</b> for the frontend and it's used Api Rest to communicate with the Backend, which is",
+                "developed with <b>Java, Springboot and MySql</b>."]
+        }
+        
     },
     "CONTACT": {
         "TITRE": "Send me a message",

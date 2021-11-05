@@ -6,7 +6,7 @@
         <h3 class="my-2"><strong>{{ 'PROJECTS.TITRE'| translate }}</strong></h3>
 
         <div class="row">
-            <div class="col-lg-4 col-md-12 mb-4">
+            <div class="col-lg-4 col-md-12 mb-4" >
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
                         <img src="assets/img/projets/screenshot_filmsapp-938x533.png" class="img-fluid" />
@@ -15,22 +15,49 @@
                         <!-- </a> -->
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Films App</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
-                        </p>
+                        <h5 class="card-title">{{ project1.tituloProject }}</h5>
+                        <p  class="card-text"                            
+                            [innerHTML]="project1.contentProject| sanitizeHtml">                                                                                    
+                        </p>  
+                        <i class='fas fa-plus-circle mb-3 mt-n3 d-block pointer'  (click)='openModal( project1)'></i>
+                        
+                        
                         <a href="http://www.c-pena.com/filmsApp/#/home" target="_blank" class="btn btn-primary">See live</a>
                     </div>
                 </div>
+                
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
+
+            <div class="col-lg-4 col-md-12 mb-4" >
                 <div class="card">
                     <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
                         <img src="assets/img/projets/screenshot_facturasapp-942x480.png" class="img-fluid" />
                         <!-- <a href="#!"> -->
                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                         <!-- </a> -->
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project2.tituloProject }}</h5>
+                        <p  class="card-text"                            
+                            [innerHTML]="project2.contentProject| sanitizeHtml">                                                                                    
+                        </p>  
+                        <i class='fas fa-plus-circle mb-3 mt-n3 d-block pointer'  (click)='openModal( project2)'></i>
+                        
+                        
+                        <a href="http://www.c-pena.com/filmsApp/#/home" target="_blank" class="btn btn-primary">See live</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+<!--             
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+                        <img src="assets/img/projets/screenshot_facturasapp-942x480.png" class="img-fluid" />
+                        <a href="#!">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </a>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Facturas App</h5>
@@ -60,6 +87,7 @@
                     </div>
                 </div>
             </div>
+             -->
         </div>
     </div>
 </section>
