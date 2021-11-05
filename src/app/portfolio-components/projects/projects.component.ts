@@ -17,17 +17,21 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 export class ProjectsComponent implements OnInit, AfterViewInit {
 
   modalRef: MdbModalRef<ModalInfoProjectComponent>;
+  private _domainLink: string = "http://www.c-pena.com"
 
-
-  project1: Iproject = {
+  private _project1: Iproject = {
     tituloProject: "",
-    contentProject: ""
-  };
-
-  project2: Iproject = {
+    contentProject: "",
+    pictureProject: "assets/img/projets/screenshot_filmsapp-938x533.png",
+    linkProject: this._domainLink + "/filmsApp/#/home"
+  };  
+    
+  private _project2: Iproject = {
     tituloProject: "",
-    contentProject: ""
-  };
+    contentProject: "",
+    pictureProject: "assets/img/projets/screenshot_facturasapp-942x480.png",
+    linkProject: this._domainLink + "/clientes-app/#/clientes"
+  };  
 
   
   constructor( 
@@ -37,6 +41,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.getTranslate();    
     
   }
+
+  
   
   ngOnInit(): void {
     
@@ -64,24 +70,36 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   
   getTranslate(){
     this.translate.get('PROJECTS.PROJECT1.TITLE1').subscribe( ( res:string ) => {
-      this.project1.tituloProject = res;          
+      this._project1.tituloProject = res;          
     });
 
     this.translate.get('PROJECTS.PROJECT1.CONTENT1').subscribe( ( res:[] ) => {      
-      this.project1.contentProject = res.join(' ').slice(0,140) + "...";    
+      this._project1.contentProject = res.join(' ');    
     });
 
     this.translate.get('PROJECTS.PROJECT2.TITLE2').subscribe( ( res:string ) => {
-      this.project2.tituloProject = res;          
+      this._project2.tituloProject = res;          
     });
 
     this.translate.get('PROJECTS.PROJECT2.CONTENT2').subscribe( ( res:[] ) => {      
-      this.project2.contentProject = res.join(' ').slice(0,140) + "...";    
+      this._project2.contentProject = res.join(' ');    
     });
+
   }
 
+  dameProjects():Array<Iproject> {
+
+    let projects: Array<Iproject> = new Array<Iproject>();  
+    projects.push( this._project1, this._project2 );
+    return projects;
+
+  }
 
  
+
+  
+
+  
 
   
 

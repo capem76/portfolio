@@ -31,7 +31,8 @@
                 "read, update and delete commercial invoices.<br>",
                 "The application is developed using <b>Angular</b> for the frontend and it's used Api Rest to communicate with the Backend, which is",
                 "developed with <b>Java, Springboot and MySql</b>."]
-        }
+        },
+        "BUTTON": "SEE LIVE"
         
     },
     "CONTACT": {

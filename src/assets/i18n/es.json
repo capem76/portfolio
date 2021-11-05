@@ -32,7 +32,8 @@
                 "leer, actualizar y eliminar facturas de clientes.<br>",
                 "La aplicacion esta creada con <b>Angular</b> en el front, utiliza Api Rest para comunicarse con el  Backend, el cual esta",
                 "desarrollado con <b>Java, Springboot y MySql</b> como mpotor de Base de datos."]
-        } 
+        },
+        "BUTTON": "VER EN VIVO" 
     },
     "CONTACT": {
         "TITRE": "Enviame un mensaje",

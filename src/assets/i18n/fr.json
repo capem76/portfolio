@@ -31,7 +31,8 @@
                 "lire, mettre à jour et supprimer des factures du clients.<br>",
                 "L'application est créé avec <b>Angular</b> pour le front, et elle utilise Api Rest pour se comuniquer avec le Back, qui est",
                 "développé avec <b>Java, Springboot et MySql</b> comme motor de Base de données."]
-        } 
+        },
+        "BUTTON": "VOIR EN DIRECT"  
     },
     "CONTACT": {
         "TITRE": "Envoyez-moi un message",
