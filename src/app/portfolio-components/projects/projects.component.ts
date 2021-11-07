@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
 import { ModalInfoProjectComponent } from "./modal-info-project/modal-info-project.component";
 import { MdbModalRef, MdbModalService } from "mdb-angular-ui-kit/modal";
-import { ProjectService } from './project.service';
 import { Iproject } from './iproject';
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
 
@@ -91,6 +90,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
     let projects: Array<Iproject> = new Array<Iproject>();  
     projects.push( this._project1, this._project2 );
+
     return projects;
 
   }
