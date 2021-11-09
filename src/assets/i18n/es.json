@@ -1,4 +1,8 @@
 {
+    "HOME": {
+        "button1": "Mis certificados",
+        "button2": "Mi Portafolio"
+    },
     "ABOUT": {
         "TITRE": "Sobre mi",
         "DESCRIPTION":{
@@ -60,6 +64,44 @@
         "envioMensajeError": {
             "title": "Error en envio",
               "text": "Su mensaje no ha sido"              
+        }
+    },
+    "CERTIFICACIONES": {
+        "titre": "Mis Certificados",
+        "link": "ver copia",
+        "duracion": "duracion",
+        "fechafin": "Fecha fin",
+        "certificado1": {
+            "title": "Desarrollador web et web mobil",
+            "subtitle": "Lugar: Talis Burdeos",
+            "desc": [
+                "Curso desarrollo frontend y backend con tecnologias HTML5, Javascript, CSS3, PHP, MYSQL5"
+                ],
+            "urlImagen": "assets/img/certifica2/developeur-web-fr.png"
+            
+        },
+        "certificado2": {
+            "title": "Angular de cero a experto",
+            "subtitle": "Plataforma: Udemy",
+            "desc": [
+                "Curso de Angular desde cero hasta poder crear aplicaciones desde páginas web de una",
+                "sola página (SPA - single page application)",
+                "a aplicaciones CRUD para realizar proceso de inserción, ",
+                "actualización, eliminación y selección de información. "
+                ],            
+            "urlImagen": "assets/img/certifica2/angular-de-cero-a-experto-es.png"
+        },
+        "certificado3": {
+            "title": "Angular y Spring Boot",
+            "subtitle": "Plataforma: Udemy",
+            "desc": [
+                "Desarrollo frontend con Angular y backend Spring Boot 2," ,
+                "API REST, JPA, Spring Security OAuth2, JWT, Socket..."
+                ],
+            "urlImagen": "assets/img/certifica2/angular-spring-es.png"
+        },
+        "modal": {
+            "btnCerrar": "Cerrar"
         }
     }
 }

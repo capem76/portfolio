@@ -19,6 +19,8 @@ import { RouterModule } from '@angular/router';
 
 // pipes
 import { SanitizeHtmlPipe } from '../pipes/sanitize-html.pipe';
+import { CertificacionesComponent } from './certificaciones/certificaciones.component';
+import { ModalCertificadoComponent } from './certificaciones/modal-certificado/modal-certificado.component';
 
 
 
@@ -34,7 +36,9 @@ import { SanitizeHtmlPipe } from '../pipes/sanitize-html.pipe';
     ContactComponent,
     ChangeLangComponent,
     ModalInfoProjectComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    CertificacionesComponent,
+    ModalCertificadoComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,8 @@ import { SanitizeHtmlPipe } from '../pipes/sanitize-html.pipe';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    ChangeLangComponent    
+    ChangeLangComponent,
+    CertificacionesComponent    
   ]
 })
 export class PortfolioComponentsModule { }

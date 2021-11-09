@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { ModalInfoProjectComponent } from "./modal-info-project/modal-info-project.component";
 import { MdbModalRef, MdbModalService } from "mdb-angular-ui-kit/modal";
 import { Iproject } from './iproject';
 import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
+import { Subscription } from 'rxjs';
 
 
 
@@ -13,10 +14,11 @@ import { LangChangeEvent, TranslateService } from "@ngx-translate/core";
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit, AfterViewInit {
+export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   modalRef: MdbModalRef<ModalInfoProjectComponent>;
   private _domainLink: string = "http://www.c-pena.com"
+  private subscriptions: Subscription[] = [];
 
   private _project1: Iproject = {
     tituloProject: "",
@@ -40,6 +42,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     this.getTranslate();    
     
   }
+  
 
   
   
@@ -68,21 +71,30 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
   
   getTranslate(){
-    this.translate.get('PROJECTS.PROJECT1.TITLE1').subscribe( ( res:string ) => {
-      this._project1.tituloProject = res;          
-    });
+    this.subscriptions.push(
+      this.translate.get('PROJECTS.PROJECT1.TITLE1').subscribe( ( res:string ) => {
+        this._project1.tituloProject = res;          
+      })
+    );
+    
+    this.subscriptions.push(
+      this.translate.get('PROJECTS.PROJECT1.CONTENT1').subscribe( ( res:[] ) => {      
+        this._project1.contentProject = res.join(' ');    
+      })
+    );
 
-    this.translate.get('PROJECTS.PROJECT1.CONTENT1').subscribe( ( res:[] ) => {      
-      this._project1.contentProject = res.join(' ');    
-    });
+    this.subscriptions.push(
+      this.translate.get('PROJECTS.PROJECT2.TITLE2').subscribe( ( res:string ) => {
+        this._project2.tituloProject = res;          
+      })
+    );
 
-    this.translate.get('PROJECTS.PROJECT2.TITLE2').subscribe( ( res:string ) => {
-      this._project2.tituloProject = res;          
-    });
+    this.subscriptions.push(
+      this.translate.get('PROJECTS.PROJECT2.CONTENT2').subscribe( ( res:[] ) => {      
+        this._project2.contentProject = res.join(' ');    
+      })
+    );
 
-    this.translate.get('PROJECTS.PROJECT2.CONTENT2').subscribe( ( res:[] ) => {      
-      this._project2.contentProject = res.join(' ');    
-    });
 
   }
 
@@ -93,6 +105,10 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
     return projects;
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach( subscrition => subscrition.unsubscribe() );
   }
 
  

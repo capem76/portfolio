@@ -1,4 +1,8 @@
 {
+    "HOME": {
+        "button1": "My Certificates",
+        "button2": "My Portfolio"
+    },
     "ABOUT": {
         "TITRE": "About me",
         "DESCRIPTION":{
@@ -59,6 +63,43 @@
         "envioMensajeError": {
             "title": "Sending error",
               "text": "Your message has not been sent"              
+        }
+    },
+    "CERTIFICACIONES": {
+        "titre": "My Certificates",
+        "link": "see copy",
+        "duracion": "duration",
+        "fechafin": "End date",
+        "certificado1": {
+            "title": "Web developer and and mobile web",
+            "subtitle": "Place: Talis Bordeaux",
+            "desc": [
+                "Frontend and backend development course with technology HTML5, Javascript, CSS3, PHP, MYSQL5"
+                ],
+            "urlImagen": "assets/img/certifica2/developeur-web-fr.png"
+        },
+        "certificado2": {
+            "title": "Angular from zero to expert",
+            "subtitle": "Online: Udemy",
+            "desc": [
+                "Angular course from zero to be able to create applications from one",
+                "single page (SPA - single page application)",
+                "to CRUD applications for performing insertion process, ",
+                "updating, deletion and selection of information. "
+                ],                
+            "urlImagen": "assets/img/certifica2/angular-de-cero-a-experto-en.png"
+        },
+        "certificado3": {
+            "title": "Angular and Spring Boot",
+            "subtitle": "Online: Udemy",
+            "desc": [
+                "Development frontend with Angular and Spring Boot for the backend," ,
+                "API REST, JPA, Spring Security OAuth2, JWT, Socket..."
+                ],
+            "urlImagen": "assets/img/certifica2/angular-spring-en.png"
+        },
+        "modal": {
+            "btnCerrar": "Close"
         }
     }
 }

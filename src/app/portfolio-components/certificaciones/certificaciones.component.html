@@ -1,0 +1,39 @@
+<section id="certifica2" class="text-center">
+    <div class="container">
+        <h3 class="mt-2 text-primary">
+            <strong>Mis certificados</strong>
+        </h3>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-3" *ngFor="let certificado of dameCertificaciones(); let i=index">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ certificado.titulo }}</h5>
+                      <h6 class="card-subtitle mb-2 ">{{ certificado.lugar }}</h6>
+                      <p class="card-text fst-italic">
+                        {{ certificado.descripcion }}
+                      </p>                    
+                    <button type="button" (click)="openModal( certificado )" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                        {{ 'CERTIFICACIONES.link' | translate }}
+                    </button>                      
+                      <p class="card-text mb-1" >
+                        <strong>{{ 'CERTIFICACIONES.duracion' | translate }}:</strong> {{ certificado.duracion }}
+                      </p>
+                      <p class="card-text">
+                        <strong>{{ 'CERTIFICACIONES.fechafin' | translate }}</strong> {{ certificado.fechaTermino }}
+                      </p>
+                      
+                      <div>
+                        <img class="img-fluid" [src]="certificado.urlImagen"  alt="">
+                      </div>
+                      
+                    </div>
+                </div>
+
+            </div>
+            
+
+        </div> 
+
+    </div>
+
+</section>
