@@ -1,0 +1,12 @@
+.my-font-size{
+
+    font-size: 14px;
+}
+
+// small devices (landscape phones, 0px and up)
+ @media (min-width: 768px) { 
+    .my-font-size{
+
+        font-size: 16px;
+    }
+ }

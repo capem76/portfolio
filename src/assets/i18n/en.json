@@ -22,7 +22,7 @@
         "PROJECT1": {
             "TITLE1": "Movies App",
             "CONTENT1": [
-                "<p>Application for searching movies using the services of the popular API <b>TheMovieDB.</b>",
+                "<p>Application web responsive for searching movies using the services of the popular API <b>TheMovieDB.</b>",
                 "The most popular movies are listed starting with the most recent releases.<br>",
                 "This app is created using <b>Bootstrap 4.6 y Angular 10</b>. To change the language it is used",
                 "the library <b>ngx-translate</b>. For the slideshow it is used the library <b>Swiper</b>.",
@@ -32,9 +32,13 @@
             "TITLE2": "Customers-Invoices App",
             "CONTENT2": [
                 "<p>Application that connects by <b>Rest Services</b> with the backend to create,",
-                "read, update and delete commercial invoices.<br>",
+                "read, update and delete commercial invoices according to the profile of the logged in user.<br>",
                 "The application is developed using <b>Angular</b> for the frontend and it's used Api Rest to communicate with the Backend, which is",
-                "developed with <b>Java, Springboot and MySql</b>."]
+                "developed with <b>Java, Springboot and MySql</b>. It has two test users",
+                "an administrator who allows creating, deleting, updating, uploading pictures and an user who is allowed just to read the information",
+                "about the stored invoices.</p><hr>",                
+                "admin user:<b> admin </b> <br> password: <b> 12345 </b><br>",
+                "non-admin user: <b> andres </b> <br> password: <b> 12345 </b>"]
         },
         "BUTTON": "SEE LIVE"
         

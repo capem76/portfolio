@@ -23,7 +23,7 @@
         "PROJECT1": {
             "TITLE1": "Peliculas App",
             "CONTENT1": [
-                "<p>Aplicacion para buscar peliculas utilizando los servicios de la popular <b>TheMovieDB.</b>",
+                "<p>Aplicacion web responsive para buscar peliculas utilizando los servicios de la popular <b>TheMovieDB.</b>",
                 "Se listan las peliculas mas populares comenzando por los estrenos recientes.<br>",
                 "Esta app esta creada utilizando <b>Bootstrap 4.6 y Angular 10</b>. Para cambiar de idioma se utiliza",
                 "la libreria <b>ngx-translate</b>. Para los slideshow se utiliza la libreria <b>Swiper</b>.",
@@ -33,9 +33,13 @@
             "TITLE2": "Clientes-Facturas App",
             "CONTENT2": [
                 "<p>Aplicacion que se conecta mediante <b>servicios Rest</b> con el backend para crear,",
-                "leer, actualizar y eliminar facturas de clientes.<br>",
+                "leer, actualizar y eliminar facturas de clientes segun el perfil del usuario logeado.<br>",
                 "La aplicacion esta creada con <b>Angular</b> en el front, utiliza Api Rest para comunicarse con el  Backend, el cual esta",
-                "desarrollado con <b>Java, Springboot y MySql</b> como mpotor de Base de datos."]
+                "desarrollado con <b>Java, Springboot y MySql</b> como motor de Base de datos. Cuenta con dos usuarios de prueba",
+                "un administrador que permite crear, eliminar, actualizar, subir fotos y un usuario al que solo se le permite leer la informacion",
+                "de las facturas almacenadas.</p><hr>",                
+                "usuario adminisrador: <b>admin</b> <br> clave: <b>12345</b> <br>",
+                "usuario no administrador: <b>andres</b> <br> clave: <b>12345</b>"]
         },
         "BUTTON": "VER EN VIVO" 
     },

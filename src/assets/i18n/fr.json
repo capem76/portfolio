@@ -22,7 +22,7 @@
         "PROJECT1": {
             "TITLE1": "Films App",
             "CONTENT1": [
-                "<p>Application pour rechercher des films en utilisant les services du poplaire <b>TheMovieDB.</b>",
+                "<p>Application web responsive pour rechercher des films en utilisant les services du poplaire <b>TheMovieDB.</b>",
                 "Les films les plus populaires sont répertoriés en commençant par les sorties récentes.<br>",
                 "Cette application est créé à l'aide de <b> Bootstrap 4.6 et Angular 10 </b>. Pour changer la langue elle utilise",
                 "la librairie <b>ngx-translate</b>. La librairie <b>Swiper</b> est utilisée pour les diaporamas.",
@@ -32,9 +32,13 @@
             "TITLE2": "Clients-Factures App",
             "CONTENT2": [
                 "<p>Application qui se connecte à travers <b>Rest Srevices</b> avec le Backend pour créer,",
-                "lire, mettre à jour et supprimer des factures du clients.<br>",
+                "lire, mettre à jour et supprimer des factures du clients selon le profil de l'utilisateur connecté.<br>",
                 "L'application est créé avec <b>Angular</b> pour le front, et elle utilise Api Rest pour se comuniquer avec le Back, qui est",
-                "développé avec <b>Java, Springboot et MySql</b> comme motor de Base de données."]
+                "développé avec <b>Java, Springboot et MySql</b> comme motor de Base de données. Il a deux utilisateurs test",
+                "un administrateurr qui permet de créer, suprimer, mettre à jour, uploader des photos et un",
+                "utilisateur qui n'est pas autorisé qu'à lire les informations de factures stockées.</p><hr>",                
+                "Utilisateur admin:<b> admin </b> <br> mot de passe: <b> 12345 </b> <br>",
+                "Utilisateur non admin:<b> andres </b> <br> mot de passe: <b>12345 </b>"]
         },
         "BUTTON": "VOIR EN DIRECT"  
     },
