@@ -76,7 +76,9 @@
             "desc": [
                 "Frontend and backend development course with technology HTML5, Javascript, CSS3, PHP, MYSQL5"
                 ],
-            "urlImagen": "assets/img/certifica2/developeur-web-fr.png"
+            "urlImagen": "assets/img/certifica2/fr/developeur-web-fr.png",
+            "imagenSmall": "assets/img/certifica2/fr/developeur-web-small-fr.png",
+            "duracion": "months"
         },
         "certificado2": {
             "title": "Angular from zero to expert",
@@ -87,7 +89,8 @@
                 "to CRUD applications for performing insertion process, ",
                 "updating, deletion and selection of information. "
                 ],                
-            "urlImagen": "assets/img/certifica2/angular-de-cero-a-experto-en.png"
+            "urlImagen": "assets/img/certifica2/en/angular-de-cero-a-experto-en.png",
+            "imagenSmall": "assets/img/certifica2/en/angular-de-cero-a-experto-small-en.png"
         },
         "certificado3": {
             "title": "Angular and Spring Boot",
@@ -96,7 +99,8 @@
                 "Development frontend with Angular and Spring Boot for the backend," ,
                 "API REST, JPA, Spring Security OAuth2, JWT, Socket..."
                 ],
-            "urlImagen": "assets/img/certifica2/angular-spring-en.png"
+            "urlImagen": "assets/img/certifica2/en/angular-spring-en.png",
+            "imagenSmall": "assets/img/certifica2/en/angular-spring-small-en.png"
         },
         "modal": {
             "btnCerrar": "Close"

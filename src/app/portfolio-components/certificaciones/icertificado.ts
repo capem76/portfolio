@@ -6,4 +6,5 @@ export interface ICertificado {
     fechaTermino?: Date|string;
     urlCopia?: string;
     urlImagen?: string;
+    imagenSmall: string;
 }

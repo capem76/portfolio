@@ -15,33 +15,36 @@ export class CertificacionesComponent implements OnInit, OnDestroy {
   private subscritions: Subscription[] = [];
   modalRef: MdbModalRef<ModalCertificadoComponent>;
 
- private _certificado1: ICertificado = {
+ private _developpeurWeb: ICertificado = {
    titulo: "",
    descripcion: "",
-   duracion: "6 meses",
+   duracion: "",
    lugar: "",
    fechaTermino: "09-2019",
-   urlImagen: ""
+   urlImagen: "",
+   imagenSmall: "assets/img/certifica2/developeur-web-small-fr.png"
  }
 
- private _certificado2: ICertificado = {
+ private _angularCero: ICertificado = {
   titulo: "",
   descripcion: "",
   duracion: "35,5 hrs",
   lugar: "",
   fechaTermino: "05-2021",
   urlCopia: "https://www.udemy.com/certificate/UC-e4e42e3a-d6ca-44aa-abf8-b1031db2d517/",
-  urlImagen: ""
+  urlImagen: "",
+  imagenSmall: "assets/img/certifica2/angular-de-cero-a-experto-small-en.png"
 }
 
-private _certificado3: ICertificado = {
+private _angularSpring: ICertificado = {
   titulo: "",
   descripcion: "",
   duracion: "23,5 hrs",
   lugar: "",
   fechaTermino: "06-2021",
   urlCopia: "https://www.udemy.com/certificate/UC-e3547345-72b3-401e-831d-9c2f5fa3b186/",
-  urlImagen: ""
+  urlImagen: "",
+  imagenSmall: ""
 }
 
   constructor(  private translate: TranslateService,
@@ -58,75 +61,101 @@ private _certificado3: ICertificado = {
   
   getTransalet(){
 
-    this.subscritions.push(
-      this.translate.get('CERTIFICACIONES.certificado1.title').subscribe( ( res: string ) => {
-        this._certificado1.titulo = res;
+    let certificado1: string = "CERTIFICACIONES.certificado1";
+
+    this.subscritions.push(      
+      this.translate.get( certificado1 + '.title').subscribe( ( res: string ) => {
+        this._developpeurWeb.titulo = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado1.urlImagen').subscribe( ( res: string ) => {
-        this._certificado1.urlImagen = res;
+        this._developpeurWeb.urlImagen = res;
+      })
+    );
+
+    this.subscritions.push(
+      this.translate.get('CERTIFICACIONES.certificado1.duracion').subscribe( ( res: string ) => {
+        this._developpeurWeb.duracion = "6 " + res;
+      })
+    );
+
+    this.subscritions.push(
+      this.translate.get('CERTIFICACIONES.certificado1.imagenSmall').subscribe( ( res: string ) => {
+        this._developpeurWeb.imagenSmall = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado1.desc').subscribe( ( res: [] ) => {
-        this._certificado1.descripcion = res.join(' ');
+        this._developpeurWeb.descripcion = res.join(' ');
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado1.subtitle').subscribe( ( res: string ) => {
-        this._certificado1.lugar = res
+        this._developpeurWeb.lugar = res
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado2.title').subscribe( ( res: string ) => {
-        this._certificado2.titulo = res;
+        this._angularCero.titulo = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado2.urlImagen').subscribe( ( res: string ) => {
-        this._certificado2.urlImagen = res;
+        this._angularCero.urlImagen = res;
+      })
+    );
+
+    this.subscritions.push(
+      this.translate.get('CERTIFICACIONES.certificado2.imagenSmall').subscribe( ( res: string ) => {
+        this._angularCero.imagenSmall = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado2.desc').subscribe( ( res: [] ) => {
-        this._certificado2.descripcion = res.join(' ');
+        this._angularCero.descripcion = res.join(' ');
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado2.subtitle').subscribe( ( res: string ) => {
-        this._certificado2.lugar = res
+        this._angularCero.lugar = res
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado3.title').subscribe( ( res: string ) => {
-        this._certificado3.titulo = res;
+        this._angularSpring.titulo = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado3.urlImagen').subscribe( ( res: string ) => {
-        this._certificado3.urlImagen = res;
+        this._angularSpring.urlImagen = res;
+      })
+    );
+
+    this.subscritions.push(
+      this.translate.get('CERTIFICACIONES.certificado3.imagenSmall').subscribe( ( res: string ) => {
+        this._angularSpring.imagenSmall = res;
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado3.desc').subscribe( ( res: [] ) => {
-        this._certificado3.descripcion = res.join(' ');
+        this._angularSpring.descripcion = res.join(' ');
       })
     );
 
     this.subscritions.push(
       this.translate.get('CERTIFICACIONES.certificado3.subtitle').subscribe( ( res: string ) => {
-        this._certificado3.lugar = res
+        this._angularSpring.lugar = res
       })
     );
 
@@ -136,32 +165,33 @@ private _certificado3: ICertificado = {
   dameCertificaciones(): Array<ICertificado>{
 
     let certifica2: Array<ICertificado> = new Array<ICertificado>();
-    certifica2.push( this._certificado1, this._certificado2, this._certificado3 );
+    certifica2.push( this._developpeurWeb, this._angularCero, this._angularSpring );
 
     return certifica2;
   }
 
-  ngOnDestroy(): void {
-   this.subscritions.forEach( subscrition => {
-     subscrition.unsubscribe();
-   }) 
-  }
-
+  
   openModal( certificado: ICertificado ){
     let config = {
       animation: true, 
       ignoreBackdropClick: false, 
       backdrop: true,    
       data: {
-         urlImagen: certificado.urlImagen,
-         modalTitle: certificado.titulo        
+        urlImagen: certificado.urlImagen,
+        modalTitle: certificado.titulo        
       },
       keyboard: true,
       modalClass: 'modal-fullscreen'
-
-
+      
+      
     }
     this.modalRef = this.modalService.open( ModalCertificadoComponent, config );
   }
-
+  
+  
+  ngOnDestroy(): void {
+   this.subscritions.forEach( subscrition => {
+     subscrition.unsubscribe();
+   }) 
+  }
 }

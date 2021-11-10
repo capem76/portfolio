@@ -5,7 +5,7 @@
         </h3>
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-3" *ngFor="let certificado of dameCertificaciones(); let i=index">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <div class="card-body">
                       <h5 class="card-title">{{ certificado.titulo }}</h5>
                       <h6 class="card-subtitle mb-2 ">{{ certificado.lugar }}</h6>
@@ -23,7 +23,7 @@
                       </p>
                       
                       <div>
-                        <img class="img-fluid" [src]="certificado.urlImagen"  alt="">
+                        <img class="img-fluid" [src]="certificado.imagenSmall"  alt="">
                       </div>
                       
                     </div>
